@@ -1,0 +1,85 @@
+package Collections2;
+
+import java.util.*;
+
+public class EmployeeStatistics {
+    
+	private List<Employee> employeeList;
+	public EmployeeStatistics(List<Employee> employeeList) {
+        this.employeeList = employeeList;
+    }
+	
+     public void countMaleAndFemaleEmployees()
+     {
+    	 int maleCount = 0;
+    	 int femaleCount = 0;
+    	 for (Employee employee : employeeList) {
+    	     if (employee.getGender().equals("Male")) {
+    	         maleCount++;
+    	     } else {
+    	         femaleCount++;
+    	     }
+    	 }
+    	 System.out.println("Number of Male employees: " + maleCount);
+    	 System.out.println("Number of female employees: " + femaleCount);
+     }
+     
+     public void countAverageAgeOfEmployees()
+     {
+     	int maleAgeSum = 0;
+     	int femaleAgeSum = 0;
+     	int maleCount = 0;
+     	int femaleCount = 0;
+     	for (Employee employee : employeeList) {
+     	    if (employee.getGender().equals("Male")) {
+     	        maleAgeSum += employee.getAge();
+     	        maleCount++;
+     	    } else {
+     	        femaleAgeSum += employee.getAge();
+     	        femaleCount++;
+     	    }
+     	}
+     	int maleAverageAge =  maleAgeSum / maleCount;
+     	int femaleAverageAge =  femaleAgeSum / femaleCount;
+     	System.out.println("********************************************");
+     	System.out.println("Average age of Male employees: " + maleAverageAge);
+     	System.out.println("Average age of Female employees: " + femaleAverageAge);
+     }
+     
+     public void countMaleFemaleAverageSalary()
+     {
+     	double maleTotalSalary = 0;
+     	double femaleTotalSalary = 0;
+     	int maleCount = 0;
+     	int femaleCount = 0;
+     	for(Employee employee : employeeList){
+     	if(employee.getGender().equals("Male")){
+     	maleTotalSalary += employee.getSalary();
+     	maleCount++;
+     	} else {
+     	femaleTotalSalary += employee.getSalary();
+     	femaleCount++;
+     	}
+     	}
+     	double maleAvgSalary = maleTotalSalary / maleCount;
+     	double femaleAvgSalary = femaleTotalSalary / femaleCount;
+     	System.out.println("Average salary of male employees: " + maleAvgSalary);
+     	System.out.println("Average salary of female employees: " + femaleAvgSalary);
+     }
+     
+     public void printEmployeesAfterAgeSeparation()
+	    {
+	    	List<Employee> youngerEmployees = new ArrayList<>();
+	    	List<Employee> olderEmployees = new ArrayList<>();
+	    	for(Employee employee : employeeList){
+	    	if(employee.getAge() <= 25){
+	    	youngerEmployees.add(employee);
+	    	} else {
+	    	olderEmployees.add(employee);
+	    	}
+	    	}
+	    	System.out.println("Younger employees: " + youngerEmployees);
+	    	System.out.println("Older employees: " + olderEmployees);
+	    }
+    
+}

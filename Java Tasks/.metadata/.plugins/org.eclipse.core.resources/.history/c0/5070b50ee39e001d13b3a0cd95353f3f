@@ -1,0 +1,51 @@
+package Collections2;
+import java.util.*;
+
+public class EmployeeInformation {
+
+	private List<Employee> employeeList;
+
+	public EmployeeInformation(List<Employee> employeeList) {
+        this.employeeList = employeeList;
+    }
+	
+	public void printHighestPaidEmployee()
+    {
+    	Employee highestPaid = employeeList.get(0);
+    	for (Employee employee : employeeList) {
+    	    if (employee.getSalary() > highestPaid.getSalary()) {
+    	        highestPaid = employee;
+    	    }
+    	}
+    	System.out.println("Highest paid employee: " + highestPaid);
+    }
+	
+	public void printEmpListJoinedAfter2015()
+    {
+    	List<String> employeeNames = new ArrayList<>();
+    	for (Employee employee : employeeList) {
+    	    if (employee.getYearOfJoining() > 2015) {
+    	        employeeNames.add(employee.getName());
+    	    }
+    	}
+    	System.out.println("Employees who joined after 2015: " + employeeNames);
+    }
+	
+	 public void showOldestEmployeeDetails()
+	    {
+	    	Employee oldestEmployee = null;
+	    	int oldestAge = 0;
+	    	String oldestDepartment = "";
+	    	for(Employee employee : employeeList){
+	    	if(employee.getAge() > oldestAge){
+	    	oldestAge = employee.getAge();
+	    	oldestEmployee = employee;
+	    	oldestDepartment = employee.getDepartment();
+	    	}
+	    	}
+	    	System.out.println("Oldest Employee: " + oldestEmployee.getName());
+	    	System.out.println("Age: " + oldestAge);
+	    	System.out.println("Department: " + oldestDepartment);
+	    }
+	
+}

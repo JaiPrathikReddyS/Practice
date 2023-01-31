@@ -1,0 +1,20 @@
+package Collections2;
+import java.util.*;
+
+public class OrganizationInformation {
+	private List<Employee> employeeList;
+	public OrganizationInformation(List<Employee> employeeList) {
+        this.employeeList = employeeList;
+    }
+	
+	 public void printAverageSalaryOfWholeOrganization()
+	    {
+	    	double totalSalary = 0;
+	    	for(Employee employee : employeeList){
+	    	totalSalary += employee.getSalary();
+	    	}
+	    	double avgSalary = totalSalary / employeeList.size();
+	    	System.out.println("Average salary of the organization: " + avgSalary);
+	    	System.out.println("Total salary of the organization: " + totalSalary);
+	    }
+}

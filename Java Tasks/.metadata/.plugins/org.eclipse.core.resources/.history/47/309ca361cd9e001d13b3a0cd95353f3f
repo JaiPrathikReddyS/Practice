@@ -1,0 +1,239 @@
+package Collections2;
+
+import java.util.*;
+
+public class EmployeeQueries {
+    
+    private static List<Employee> employees;
+    
+    public EmployeeQueries(List<Employee> employees) {
+        this.employees = employees;
+    }
+     public static void printMaleFemaleEmployee()
+     {
+    	 int maleCount = 0;
+    	 int femaleCount = 0;
+    	 for (Employee e : employees) {
+    	     if (e.getGender().equals("Male")) {
+    	         maleCount++;
+    	     } else {
+    	         femaleCount++;
+    	     }
+    	 }
+    	 System.out.println("Number of male employees: " + maleCount);
+    	 System.out.println("Number of female employees: " + femaleCount);
+     }
+      
+    public void printNameOfAllDepartments() {
+    	List<String> departments = new ArrayList<>();
+    	for (Employee emp : employees) {
+    	    if (!departments.contains(emp.getDepartment())) {
+    	        departments.add(emp.getDepartment());
+    	    }
+    	}
+    	System.out.println("Departments: " + departments);
+    }
+    
+    public void printAverageAgeOfEmployee()
+    {
+    	int maleAgeSum = 0;
+    	int femaleAgeSum = 0;
+    	int maleCount = 0;
+    	int femaleCount = 0;
+    	for (Employee emp : employees) {
+    	    if (emp.getGender().equals("Male")) {
+    	        maleAgeSum += emp.getAge();
+    	        maleCount++;
+    	    } else {
+    	        femaleAgeSum += emp.getAge();
+    	        femaleCount++;
+    	    }
+    	}
+    	double maleAvgAge = (double) maleAgeSum / maleCount;
+    	double femaleAvgAge = (double) femaleAgeSum / femaleCount;
+    	System.out.println("Average age of male employees: " + maleAvgAge);
+    	System.out.println("Average age of female employees: " + femaleAvgAge);
+    }
+    
+    public void printHighestPaidEmployee()
+    {
+    	Employee highestPaid = employees.get(0);
+    	for (Employee emp : employees) {
+    	    if (emp.getSalary() > highestPaid.getSalary()) {
+    	        highestPaid = emp;
+    	    }
+    	}
+    	System.out.println("Highest paid employee: " + highestPaid);
+    }
+    
+    public void printEmpListJoinedAfter2015()
+    {
+    	List<String> employeeNames = new ArrayList<>();
+    	for (Employee emp : employees) {
+    	    if (emp.getYearOfJoining() > 2015) {
+    	        employeeNames.add(emp.getName());
+    	    }
+    	}
+    	System.out.println("Employees who joined after 2015: " + employeeNames);
+    }
+    
+    public void printEmployeeInEachDepartment()
+    {
+    	Map<String, Integer> departmentCount = new HashMap<>();
+    	for (Employee emp : employees) {
+    	    if (departmentCount.containsKey(emp.getDepartment())) {
+    	        departmentCount.put(emp.getDepartment(), departmentCount.get(emp.getDepartment()) + 1);
+    	    } else {
+    	        departmentCount.put(emp.getDepartment(), 1);
+    	    }
+    	}
+    	System.out.println("Number of employees in each department: " + departmentCount);
+    }
+    
+    public void printAverageSalaryOfEachDepartment()
+    {
+    	Map<String, Double> avgSalaryByDept = new HashMap<>();
+    	for(Employee e : employees){
+    	    String dept = e.getDepartment();
+    	    Double currentSalary = e.getSalary();
+    	    if(avgSalaryByDept.containsKey(dept)){
+    	        Double currentAvg = avgSalaryByDept.get(dept);
+    	        currentAvg = (currentAvg + currentSalary) / 2;
+    	        avgSalaryByDept.put(dept, currentAvg);
+    	    } else {
+    	        avgSalaryByDept.put(dept, currentSalary);
+    	    }
+    	}
+    	System.out.println("Average salary by department: " + avgSalaryByDept);
+    }
+    
+    public void printYoungestMaleEmployeeInPDDepartment()
+    {
+    	Employee youngestMalePD = null;
+    	int minAge = Integer.MAX_VALUE;
+    	for(Employee emp : employees){
+    	    if(emp.getDepartment().equals("Product Development") && emp.getGender().equals("Male")){
+    	        if(emp.getAge() < minAge){
+    	            youngestMalePD = emp;
+    	            minAge = emp.getAge();
+    	        }
+    	    }
+    	}
+    	System.out.println("Youngest male employee in product development department: " + youngestMalePD);
+    }
+    
+    public void printHighestWorkingExperiencedEmployees()
+    {
+    	Employee mostExperience = null;
+    	int maxExperience = Integer.MIN_VALUE;
+    	int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+    	for(Employee emp : employees){
+    	    int yearsExperience = currentYear - emp.getYearOfJoining();
+    	    if(yearsExperience > maxExperience){
+    	        mostExperience = emp;
+    	        maxExperience = yearsExperience;
+    	    }
+    	}
+    	System.out.println("Employee with most experience: " + mostExperience);
+    }
+    
+    public void printMaleFemaleInSalesMarketingTeam()
+    {
+    	int maleCount = 0;
+    	int femaleCount = 0;
+    	for(Employee emp : employees){
+    	    if(emp.getDepartment().equals("Sales and Marketing")){
+    	        if(emp.getGender().equals("Male")){
+    	            maleCount++;
+    	        } else {
+    	            femaleCount++;
+    	        }
+    	    }
+    	}
+    	System.out.println("Number of male employees in Sales and Marketing: " + maleCount);
+    	System.out.println("Number of female employees in Sales and Marketing: " + femaleCount);
+    }
+    
+    public void printMaleFemaleAverageSalary()
+    {
+    	double maleTotalSalary = 0;
+    	double femaleTotalSalary = 0;
+    	int maleCount = 0;
+    	int femaleCount = 0;
+    	for(Employee emp : employees){
+    	if(emp.getGender().equals("Male")){
+    	maleTotalSalary += emp.getSalary();
+    	maleCount++;
+    	} else {
+    	femaleTotalSalary += emp.getSalary();
+    	femaleCount++;
+    	}
+    	}
+    	double maleAvgSalary = maleTotalSalary / maleCount;
+    	double femaleAvgSalary = femaleTotalSalary / femaleCount;
+    	System.out.println("Average salary of male employees: " + maleAvgSalary);
+    	System.out.println("Average salary of female employees: " + femaleAvgSalary);
+    }
+    
+    public void printAllEmployeeInEachDepartment()
+    {
+    	Map<String, List<String>> departmentEmployees = new HashMap<>();
+    	for(Employee e : employees){
+    	if(departmentEmployees.containsKey(e.getDepartment())){
+    	departmentEmployees.get(e.getDepartment()).add(e.getName());
+    	} else {
+    	List<String> empList = new ArrayList<>();
+    	empList.add(e.getName());
+    	departmentEmployees.put(e.getDepartment(), empList);
+    	}
+    	}
+    	for(Map.Entry<String, List<String>> entry : departmentEmployees.entrySet()){
+    	System.out.println("Department: " + entry.getKey());
+    	System.out.println("Employees: " + entry.getValue());
+    	}
+    }
+    
+    public void printAverageSalaryOfWholeOrganization()
+    {
+    	double totalSalary = 0;
+    	for(Employee e : employees){
+    	totalSalary += e.getSalary();
+    	}
+    	double avgSalary = totalSalary / employees.size();
+    	System.out.println("Average salary of the organization: " + avgSalary);
+    	System.out.println("Total salary of the organization: " + totalSalary);
+    }
+    
+    public void printEmployeesAfterAgeSeparation()
+    {
+    	List<Employee> youngerEmployees = new ArrayList<>();
+    	List<Employee> olderEmployees = new ArrayList<>();
+    	for(Employee e : employees){
+    	if(e.getAge() <= 25){
+    	youngerEmployees.add(e);
+    	} else {
+    	olderEmployees.add(e);
+    	}
+    	}
+    	System.out.println("Younger employees: " + youngerEmployees);
+    	System.out.println("Older employees: " + olderEmployees);
+    }
+    
+    public void printOldestEmployeeDetails()
+    {
+    	Employee oldestEmployee = null;
+    	int oldestAge = 0;
+    	String oldestDepartment = "";
+    	for(Employee e : employees){
+    	if(e.getAge() > oldestAge){
+    	oldestAge = e.getAge();
+    	oldestEmployee = e;
+    	oldestDepartment = e.getDepartment();
+    	}
+    	}
+    	System.out.println("Oldest Employee: " + oldestEmployee.getName());
+    	System.out.println("Age: " + oldestAge);
+    	System.out.println("Department: " + oldestDepartment);
+    }
+    
+}

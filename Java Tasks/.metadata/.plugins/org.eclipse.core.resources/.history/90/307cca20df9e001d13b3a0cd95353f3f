@@ -1,0 +1,29 @@
+package Collections2;
+import java.util.*;
+
+public class EmployeeInformation {
+
+	private List<Employee> employeeList;
+
+	public EmployeeInformation(List<Employee> employeeList) {
+        this.employeeList = employeeList;
+    }
+	
+	 public void showOldestEmployeeDetails()
+	    {
+	    	Employee oldestEmployee = null;
+	    	int oldestAge = 0;
+	    	String oldestDepartment = "";
+	    	for(Employee employee : employeeList){
+	    	if(employee.getAge() > oldestAge){
+	    	oldestAge = employee.getAge();
+	    	oldestEmployee = employee;
+	    	oldestDepartment = employee.getDepartment();
+	    	}
+	    	}
+	    	System.out.println("Oldest Employee: " + oldestEmployee.getName());
+	    	System.out.println("Age: " + oldestAge);
+	    	System.out.println("Department: " + oldestDepartment);
+	    }
+	
+}

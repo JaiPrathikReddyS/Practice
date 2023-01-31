@@ -1,0 +1,22 @@
+package Collections1;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class EmployeeList {
+	
+	List<Employee> employeeList = new ArrayList<>();
+
+public EmployeeList()
+{
+	employees.add(new TreeSetEmployee("Jiya Brein", 32, 25000.0));
+    employees.add(new TreeSetEmployee("Paul Niksui", 25, 13500.0));
+    employees.add(new TreeSetEmployee("Martin Theron", 29, 18000.0));
+    employees.add(new TreeSetEmployee("Murali Gowda", 28, 32500.0));
+    employees.add(new TreeSetEmployee("Nima Roy", 27, 22700.0));
+}
+public List<Employee> getEmployeeList()
+{
+return employeeList;
+}
+}

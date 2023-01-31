@@ -1,0 +1,11 @@
+package Collections2;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class EmployeeMain {
+	public static void main(String[] args) {
+		EmployeeQueries.printMaleFemaleEmployee();
+	    
+	}
+}

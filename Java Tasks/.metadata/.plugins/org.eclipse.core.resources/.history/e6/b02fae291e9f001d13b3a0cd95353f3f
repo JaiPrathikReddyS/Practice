@@ -1,0 +1,36 @@
+package Collections2;
+
+import java.util.*;
+
+public class EmployeeMain {
+	public static void main(String[] args) {
+	//	EmployeeData employeeData = new EmployeeData();
+	//	for(Employee employee : employeeData.getEmployeeList()) {
+	//		System.out.println(employee);
+		//}
+	    EmployeeData employeeData = new EmployeeData();
+	    List<Employee> employeeList = employeeData.getEmployeeList();
+	    
+	    EmployeeStatistics employeeStatistics = new EmployeeStatistics(employeeList);
+	    EmployeeFilter employeeEmployeeFilter = new EmployeeFilter(employeeList);
+	    DepartmentStatistics departmentStatistics = new DepartmentStatistics(employeeList);
+	    
+	    System.out.println("Output for Queries: " + '\n');
+	    
+	    employeeStatistics.MaleFemaleEmployeesCount();
+	    employeeStatistics.AverageAgeOfEmployees();
+	    employeeStatistics.MaleFemaleAverageSalary();
+	    employeeStatistics.AverageAndTotalSalaryOfEmployees();
+	    
+	    employeeEmployeeFilter.HighestPaidEmployee();
+	    employeeEmployeeFilter.MostExperiencedEmployee();
+	    employeeEmployeeFilter.OldestEmployeeDetails();
+	    
+	    
+	    
+	    departmentStatistics.AllDepartmentsList();
+	    departmentStatistics.EmployeesInEachDepartment();
+	    departmentStatistics.printAverageSalaryOfEachDepartment();
+	    		
+	}
+}

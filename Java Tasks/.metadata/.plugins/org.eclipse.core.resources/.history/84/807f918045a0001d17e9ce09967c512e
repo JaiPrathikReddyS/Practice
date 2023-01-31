@@ -1,0 +1,29 @@
+package Collections1;
+import java.util.*;
+
+public class EmployeeData Comparable<EmployeeData>{
+String name; 
+int age;
+double salary;
+public EmployeeData(String name, int age, double salary) 
+{
+    this.name = name;
+    this.age = age;
+    this.salary = salary;
+}
+public String getName() 
+{
+    return name;
+}
+public double getSalary() 
+{
+    return salary;
+}
+@Override
+public String toString() 
+{
+    return  ", Name : "+name
+            +", age : "+age
+            +", Salary : "+salary;
+}
+}

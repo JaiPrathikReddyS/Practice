@@ -1,0 +1,29 @@
+package Collections2;
+
+import java.util.*;
+
+public class EmployeeStatistics {
+    
+   
+	private List<Employee> employeeList;
+
+	public EmployeeQueries(List<Employee> employeeList) {
+        this.employeeList = employeeList;
+    }
+     public void countMaleAndFemaleEmployees()
+     {
+    	 int maleCount = 0;
+    	 int femaleCount = 0;
+    	 for (Employee employee : employeeList) {
+    	     if (employee.getGender().equals("Male")) {
+    	         maleCount++;
+    	     } else {
+    	         femaleCount++;
+    	     }
+    	 }
+    	 System.out.println("Number of Male employees: " + maleCount);
+    	 System.out.println("Number of female employees: " + femaleCount);
+     }
+    
+    
+}

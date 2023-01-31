@@ -1,0 +1,18 @@
+package Collections2;
+
+import java.util.*;
+
+public class EmployeeMain {
+	public static void main(String[] args) {
+	//	EmployeeData employeeData = new EmployeeData();
+	//	for(Employee employee : employeeData.getEmployeeList()) {
+	//		System.out.println(employee);
+		//}
+	    EmployeeData employeeData = new EmployeeData();
+	    List<Employee> employeeList = employeeData.getEmployeeList();
+	    
+	    EmployeeStatistics employeeStatictics = new EmployeeStatistics(employeeList);
+	    employeeStatictics.countMaleAndFemaleEmployees();
+	    		
+	}
+}

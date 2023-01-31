@@ -1,0 +1,62 @@
+package project;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Employee {
+	 private int empId;
+	    private String empName;
+	    private double empSalary;
+	    private Address address;
+	    private String empRole;
+	    private List<Course> registeredCourses;
+	    public Employee(int empId, String empName, double empSalary,Address address, String empRole) 
+	 {
+	        this.empId = empId;
+	        this.empName = empName;
+	        this.empSalary = empSalary;
+	        this.address = address;
+	        this.empRole = empRole;
+	        this.registeredCourses = new ArrayList<Course>();
+	    }
+	    public int getEmpId() {
+	        return empId;
+	    }
+	    public String getEmpName() {
+	        return empName;
+	    }
+	    public double getEmpSalary() {
+	        return empSalary;
+	    }
+	    public void setEmpId(int empId) {
+	        this.empId = empId;
+	    }
+	    public void setEmpName(String empName) {
+	        this.empName = empName;
+	    }
+	    public void setEmpSalary(double empSalary) {
+	        this.empSalary = empSalary;
+	    }
+	    public void setAddress(Address address) {
+	        this.address = address;
+	    }
+	    public Address getAddress() {
+	        return address;
+	    }
+	    public void setempRole(String empRole) {
+	        this.empRole = empRole;
+	    }
+	    public String getempRole() {
+	        return empRole;
+	    }
+	  //  public void registerForCourse(Course course) {
+	    //    registeredCourses.add(course);
+	    //}
+		public void printDetails() {
+			
+			System.out.println("Name: " + getEmpName());
+	        System.out.print("EmpId: "+getEmpId());
+	      //  System.out.println("Course Name: " + Course.getCourseName() + 
+	        //		", Course Duration: " + Course.getCourseDuration());
+		}
+}

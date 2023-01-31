@@ -1,0 +1,23 @@
+package Collections2;
+
+public class EmployeeQueries {
+    
+    private List<Employee> employees;
+    
+    public EmployeeQueries(List<Employee> employees) {
+        this.employees = employees;
+    }
+    
+    public void query1() {
+        long maleCount = employees.stream().filter(e -> e.getGender().equals("Male")).count();
+        long femaleCount = employees.stream().filter(e -> e.getGender().equals("Female")).count();
+        System.out.println("Number of male employees: " + maleCount);
+        System.out.println("Number of female employees: " + femaleCount);
+    }
+    
+    public void query2() {
+        List<String> departments = employees.stream().map(Employee::getDepartment).distinct().collect(Collectors.toList());
+        System.out.println("Departments: " + departments);
+    }
+    //and so on for the rest of the queries
+}

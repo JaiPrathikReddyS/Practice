@@ -1,0 +1,16 @@
+package Collections1;
+import java.util.Comparator;
+import java.util.TreeMap;
+
+public class Task6Main {
+    public static void main(String[] args) {
+        TreeMap<Integer, String> treeMap = new TreeMap<>(Comparator.reverseOrder());
+        treeMap.put(1, "Value1");
+        treeMap.put(2, "Value2");
+        treeMap.put(3, "Value3");
+        treeMap.put(4, "Value4");
+        treeMap.put(5, "Value5");
+
+        System.out.println(treeMap);
+    }
+}
